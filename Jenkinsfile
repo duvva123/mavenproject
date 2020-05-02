@@ -12,13 +12,14 @@ pipeline {
                    ansible node -m ping
                    cd /home/ubuntu/playbook/	  
                    ansible-playbook deploy.yaml
+                   cd /home/ubuntu/playbook/
                 '''
             }
         }
 
         stage('Compile Stage') {
             steps {
-                sh "mvn clean compile"
+                sh "sudo /home/ubuntu/playbook/ mvn clean compile"
             }
         }
         stage('Package') {
