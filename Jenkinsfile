@@ -19,22 +19,14 @@ pipeline {
 
         stage('Compile Stage') {
             steps {
-                echo 'Building..'
-                sh '''
-                   cd /home/ubuntu/
-                   pwd
-                   sh "mvn clean compile"
-                ...
+                cd /home/ubuntu/playbook/
+                sh "mvn clean compile"
             }
         }
         stage('Package') {
             steps {
-                echo 'Building..'
-                sh '''
-                   cd /home/ubuntu/
-                   pwd
-                   sh "mvn package"
-                ...
+                cd /home/ubuntu/playbook/
+                sh "mvn package"
             }
         }
     }
