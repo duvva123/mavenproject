@@ -32,19 +32,5 @@ pipeline {
                 sh 'echo "Fail!" ; exit 1'
             }
         }
-    post {
-       failure {
-            script {
-                currentBuild.result = 'FAILURE'
-            }
-        }
-
-       always {
-            step([$class: 'Mailer',
-                notifyEveryUnstableBuild: true,
-                recipients: "duvva.raghavendra@gmail.com",
-                sendToIndividuals: true])
-        } 
-     }
-   }    
+    }    
 }
