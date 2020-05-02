@@ -19,7 +19,7 @@ pipeline {
 
         stage('Compile Stage') {
             steps {
-                sh "sudo /home/ubuntu/playbook/ mvn clean compile"
+                sh "mvn clean compile"
             }
         }
         stage('Package') {
