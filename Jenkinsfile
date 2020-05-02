@@ -19,13 +19,11 @@ pipeline {
 
         stage('Compile Stage') {
             steps {
-                cd /home/ubuntu/playbook/
                 sh "mvn clean compile"
             }
         }
         stage('Package') {
             steps {
-                cd /home/ubuntu/playbook/
                 sh "mvn package"
             }
         }
