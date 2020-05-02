@@ -16,16 +16,15 @@ pipeline {
                 '''
             }
         }
-
-        stage('Compile Stage') {
+       stage('Compile') {
+            agent { label 'slave' }
             steps {
-                sh "mvn clean compile"
-            }
-        }
-        stage('Package') {
-            steps {
-                sh "mvn package"
+                echo 'Compile..'
+                sh '''
+                cd /home/ubuntu/playbook/
+                sudo mvn compile
+                '''
             }
         }
     }
-}
+}    
