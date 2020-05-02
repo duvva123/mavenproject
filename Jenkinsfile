@@ -26,6 +26,12 @@ pipeline {
                 '''
             }
         }
+       stage('Compile') {
+            agent { label 'slave' }
+            steps {
+                sh 'echo "Fail!" ; exit 1'
+            }
+        }
     post {
        failure {
             script {
